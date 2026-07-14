@@ -1,0 +1,8 @@
+{
+  "events": [
+    { "theme": "HALLOWEEN", "start": "2026-10-10", "end": "2026-11-03" },
+    { "theme": "CHRISTMAS", "start": "2026-12-01", "end": "2026-12-26" },
+    { "theme": "NEW_YEAR",  "start": "2026-12-27", "end": "2027-01-04" },
+    { "theme": "EASTER",    "start": "2027-03-22", "end": "2027-04-05" }
+  ]
+}
