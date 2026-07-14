@@ -3,18 +3,21 @@
 `seasonal_events.json` pilote les fenêtres des thèmes d'arrière-plan de l'app
 **sans mise à jour Play Store**.
 
-## Mise en place
+## Emplacement
 
-Héberger le fichier à l'URL exacte :
+Le fichier est hébergé sur le dépôt GitHub public dédié :
 
-```
-https://lacitadelle-mc.fr/app/seasonal_events.json
-```
+- Édition : <https://github.com/Eldrazy-Git/Seasonal_event/blob/main/seasonal_events.json>
+- URL lue par l'app :
+  `https://raw.githubusercontent.com/Eldrazy-Git/Seasonal_event/main/seasonal_events.json`
+  (constante `SeasonalEvents.CONFIG_URL` — la changer là si l'hébergement bouge)
 
-(URL définie dans `SeasonalEvents.CONFIG_URL` — la changer là si besoin.)
+L'app le télécharge **une fois par jour au maximum** : au lancement, elle
+vérifie s'il a déjà été téléchargé depuis minuit (heure locale) ; sinon elle
+le récupère et le met en cache. En cas d'échec (hors ligne…), le dernier
+cache reste utilisé et un nouvel essai a lieu au prochain lancement.
 
-L'app le télécharge au lancement, au plus une fois toutes les 6 h, et le met
-en cache localement. Hors connexion, le dernier cache reste utilisé.
+Le fichier `seasonal_events.json` de ce dossier est un modèle de référence.
 
 ## Format
 
@@ -43,6 +46,6 @@ invalide ou injoignable — l'app retombe sur son calcul intégré :
 | Noël | 1er – 26 déc. |
 | Nouvel An | 27 déc. – 3 janv. |
 | Pâques | 7 jours avant le dimanche de Pâques (calculé) → lundi de Pâques |
-| Saisons | météorologiques : mars-mai, juin-août, sept.-nov., déc.-févr. |
+| Saisons | équinoxes/solstices réels de l'année, calculés (ex. automne 2025 : 22/09, automne 2026 : 23/09) |
 
 Pour désactiver tous les overrides, publier `{ "events": [] }`.
