@@ -24,7 +24,7 @@ Le fichier `seasonal_events.json` de ce dossier est un modèle de référence.
 ```json
 {
   "events": [
-    { "theme": "HALLOWEEN", "start": "2026-10-10", "end": "2026-11-03" }
+    { "theme": "BIRTHDAY", "start": "2026-08-20", "end": "2026-08-31" }
   ]
 }
 ```
@@ -42,6 +42,7 @@ invalide ou injoignable — l'app retombe sur son calcul intégré :
 
 | Thème | Fenêtre intégrée |
 |---|---|
+| Anniversaire | 22 Août – 30 Août |
 | Halloween | 24 oct. – 1er nov. |
 | Noël | 1er – 26 déc. |
 | Nouvel An | 27 déc. – 3 janv. |
