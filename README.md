@@ -43,6 +43,7 @@ invalide ou injoignable — l'app retombe sur son calcul intégré :
 | Thème | Fenêtre intégrée |
 |---|---|
 | Anniversaire | 24 Août – 30 Août |
+| 30 Août 2025 |                   |
 | Halloween | 24 oct. – 1er nov. |
 | Noël | 1er – 26 déc. |
 | Nouvel An | 27 déc. – 3 janv. |
