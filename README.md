@@ -131,6 +131,26 @@ Structure générale :
   direction du déplacement.
 - Maximum 24 items par thème.
 
+### `texts` — textes en police pixel-art
+
+```json
+"texts": [
+  { "text": "Un an déjà ♥", "color": "#E05046", "y": 0.27, "size": 3, "alpha": 210 }
+]
+```
+
+- `text` : le texte affiché (max 64 caractères). Police pixel-art 5×7
+  intégrée à l'app : A–Z, a–z, 0–9, accents français (é è ê ë à â ç ù û î ï
+  ô ö ü É È À Ç), ponctuation courante (`! ? . , ' - + : ; ( ) « »`) et les
+  symboles `♥` `★`. Un caractère inconnu est ignoré.
+- `color` : couleur du texte (défaut `#E05046`, rouge).
+- `x` / `y` : position du **centre** du texte, en fraction de l'écran
+  (défauts `0.5` / `0.3`). Le texte s'estompe devant les boutons de vote,
+  glyphe par glyphe.
+- `size` : taille d'un pixel de la grille, en dp (1–8, défaut 2.8).
+- `alpha` : opacité 0–255 (défaut 200).
+- Maximum 4 textes par thème. Le texte oscille doucement de haut en bas.
+
 ### `sprites` — pixel-art
 
 ```json
