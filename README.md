@@ -135,7 +135,7 @@ Structure générale :
 
 ```json
 "texts": [
-  { "text": "Un an déjà ♥", "color": "#E05046", "y": 0.27, "size": 3, "alpha": 210 }
+  { "text": "Un an déjà ♥", "color": "#E05046", "anchor": "logo", "offset": 10, "size": 3, "alpha": 210 }
 ]
 ```
 
@@ -144,12 +144,18 @@ Structure générale :
   ô ö ü É È À Ç), ponctuation courante (`! ? . , ' - + : ; ( ) « »`) et les
   symboles `♥` `★`. Un caractère inconnu est ignoré.
 - `color` : couleur du texte (défaut `#E05046`, rouge).
-- `x` / `y` : position du **centre** du texte, en fraction de l'écran
-  (défauts `0.5` / `0.3`). Le texte s'estompe devant les boutons de vote,
-  glyphe par glyphe.
+- `anchor: "logo"` : **recommandé** — le texte se place centré **sous le
+  logo Citadelle**, quel que soit l'appareil, et suit le défilement de
+  l'écran. `offset` = écart sous le logo en dp (défaut 10). Sans ancre, le
+  logo (dessiné par-dessus le décor) peut recouvrir le texte.
+- `x` / `y` (ignorés si `anchor` est présent) : position du **centre** du
+  texte, en fraction de l'écran, **entre 0 et 1, séparateur décimal = point**
+  (`0.6`, jamais `0,6` — une virgule rend tout le fichier invalide et il est
+  alors rejeté en bloc, l'ancien cache reste affiché). Défauts `0.5` / `0.3`.
 - `size` : taille d'un pixel de la grille, en dp (1–8, défaut 2.8).
 - `alpha` : opacité 0–255 (défaut 200).
-- Maximum 4 textes par thème. Le texte oscille doucement de haut en bas.
+- Maximum 4 textes par thème. Le texte oscille doucement de haut en bas et
+  s'estompe devant les boutons de vote, glyphe par glyphe.
 
 ### `sprites` — pixel-art
 
