@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "sprites": {
     "butterfly_orange": {
       "flapRate": 6,
@@ -320,7 +320,7 @@
       "fireworks": true,
       "fireworksDelay": 0.8,
       "texts": [
-        { "text": "Un an déjà ♥", "color": "#E05046", "anchor": "logo", "offset": 10, "size": 3, "alpha": 210 }
+        { "text": "Un an déjà ♥", "colors": ["#E05046", "#8CE060", "#F5D042", "#58C8D8"], "anchor": "logo", "offset": 10, "jitter": [70, 16], "angle": 8, "size": 3, "alpha": 210 }
       ],
       "particles": [
         { "kind": "CONFETTI", "count": 60, "colors": ["#E05046", "#F0903C", "#F5D042", "#8CE060", "#58C8D8", "#B88CE8", "#EE8CB8"] },

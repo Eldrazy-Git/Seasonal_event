@@ -135,7 +135,8 @@ Structure générale :
 
 ```json
 "texts": [
-  { "text": "Un an déjà ♥", "color": "#E05046", "anchor": "logo", "offset": 10, "size": 3, "alpha": 210 }
+  { "text": "Un an déjà ♥", "colors": ["#E05046", "#8CE060", "#F5D042", "#58C8D8"],
+    "anchor": "logo", "offset": 10, "jitter": [70, 16], "angle": 8, "size": 3, "alpha": 210 }
 ]
 ```
 
@@ -144,6 +145,13 @@ Structure générale :
   ô ö ü É È À Ç), ponctuation courante (`! ? . , ' - + : ; ( ) « »`) et les
   symboles `♥` `★`. Un caractère inconnu est ignoré.
 - `color` : couleur du texte (défaut `#E05046`, rouge).
+- `colors` : liste de couleurs — l'une d'elles est **tirée au hasard à chaque
+  lancement de l'app** (prioritaire sur `color`).
+- `jitter: [x, y]` : décalage aléatoire max en dp, tiré à chaque lancement —
+  horizontal (± x, ici ± 70) et vertical (vers le bas, 0 à y). La position
+  est toujours ramenée dans l'écran (marge 8 dp).
+- `angle` : inclinaison aléatoire max en degrés (± angle, tirée à chaque
+  lancement ; 0–45, défaut 0).
 - `anchor: "logo"` : **recommandé** — le texte se place centré **sous le
   logo Citadelle**, quel que soit l'appareil, et suit le défilement de
   l'écran. `offset` = écart sous le logo en dp (défaut 10). Sans ancre, le
