@@ -320,7 +320,7 @@
       "fireworks": true,
       "fireworksDelay": 0.8,
       "texts": [
-        { "text": "Un an déjà ♥", "color": "#E05046", "y": 0.60, "size": 3, "alpha": 210 }
+        { "text": "Un an déjà ♥", "color": "#E05046", "y": 0.80, "size": 3, "alpha": 210 }
       ],
       "particles": [
         { "kind": "CONFETTI", "count": 60, "colors": ["#E05046", "#F0903C", "#F5D042", "#8CE060", "#58C8D8", "#B88CE8", "#EE8CB8"] },
