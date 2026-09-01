@@ -1,0 +1,344 @@
+{
+  "version": 1,
+  "sprites": {
+    "butterfly_orange": {
+      "flapRate": 6,
+      "palette": { "R": "#E88C3A", "r": "#C05A28", "K": "#2A2430" },
+      "frames": [
+        ["RR...RR", "RRR.RRR", "rRRKRRr", ".RRKRR.", ".rRKRr.", "..r.r.."],
+        [".R...R.", ".RR.RR.", "..RKR..", "..RKR..", "..rKr..", "...K..."]
+      ]
+    },
+    "butterfly_blue": {
+      "flapRate": 6,
+      "palette": { "R": "#6AA8E0", "r": "#4878B0", "K": "#2A2430" },
+      "frames": [
+        ["RR...RR", "RRR.RRR", "rRRKRRr", ".RRKRR.", ".rRKRr.", "..r.r.."],
+        [".R...R.", ".RR.RR.", "..RKR..", "..RKR..", "..rKr..", "...K..."]
+      ]
+    },
+    "butterfly_pink": {
+      "flapRate": 6,
+      "palette": { "R": "#EE9CBC", "r": "#C87098", "K": "#2A2430" },
+      "frames": [
+        ["RR...RR", "RRR.RRR", "rRRKRRr", ".RRKRR.", ".rRKRr.", "..r.r.."],
+        [".R...R.", ".RR.RR.", "..RKR..", "..RKR..", "..rKr..", "...K..."]
+      ]
+    },
+    "bee": {
+      "flapRate": 10,
+      "palette": { "Y": "#F0C030", "K": "#302820", "W": "#D8E8F5" },
+      "frames": [
+        ["..W.W...", ".YYKYKY.", "YYYKYKYY", ".YYKYKY.", "........"],
+        ["........", ".YYKYKY.", "YYYKYKYY", ".YYKYKY.", "..W.W..."]
+      ]
+    },
+    "ghost": {
+      "flapRate": 2.5,
+      "palette": { "W": "#E8ECF2", "w": "#C0C8D8", "K": "#303848" },
+      "frames": [
+        [".WWWWW.", "WWWWWWW", "WKWWKWW", "WWWWWWW", "wWWWWWw", "WWWWWWW", "W.W.W.W"],
+        [".WWWWW.", "WWWWWWW", "WKWWKWW", "WWWWWWW", "wWWWWWw", "WWWWWWW", ".W.W.W."]
+      ]
+    },
+    "big_snowflake": {
+      "palette": { "X": "#E8F4FF", "b": "#A8D0E8" },
+      "frames": [
+        ["b...X...b", ".X..X..X.", "..X.X.X..", "...XXX...", "bXXX.XXXb", "...XXX...", "..X.X.X..", ".X..X..X.", "b...X...b"]
+      ]
+    },
+    "big_snowflake_cross": {
+      "palette": { "X": "#FFFFFF", "b": "#C8E0F0" },
+      "frames": [
+        ["...X...", ".b.X.b.", "..XXX..", "XXX.XXX", "..XXX..", ".b.X.b.", "...X..."]
+      ]
+    },
+    "big_snowflake_dendrite": {
+      "palette": { "X": "#D8ECFA", "b": "#9CC8E8" },
+      "frames": [
+        ["..X...X..", "...X.X...", "X...b...X", ".X.bXb.X.", "..bX.Xb..", ".X.bXb.X.", "X...b...X", "...X.X...", "..X...X.."]
+      ]
+    },
+    "big_leaf_orange": {
+      "palette": { "O": "#E07A2E", "D": "#B05020" },
+      "frames": [
+        ["...OO.", "..OODO", ".OODOO", "OODOO.", ".DDO..", ".D...."]
+      ]
+    },
+    "big_leaf_red": {
+      "palette": { "O": "#C85A28", "D": "#963C1C" },
+      "frames": [
+        ["...OO.", "..OODO", ".OODOO", "OODOO.", ".DDO..", ".D...."]
+      ]
+    },
+    "big_leaf_yellow": {
+      "palette": { "O": "#D9A03A", "D": "#B07828" },
+      "frames": [
+        ["...OO.", "..OODO", ".OODOO", "OODOO.", ".DDO..", ".D...."]
+      ]
+    },
+    "star": {
+      "palette": { "Y": "#FFE066", "y": "#FFF4B8" },
+      "frames": [
+        ["...Y...", "..YYY..", "YYYyYYY", "..YYY..", "...Y..."]
+      ]
+    },
+    "egg_pink": {
+      "palette": { "P": "#E8A0C0", "S": "#9C6AC8" },
+      "frames": [
+        [".PPP.", "PPPPP", "SPSPS", "PSPSP", "PPPPP", ".PPP."]
+      ]
+    },
+    "egg_cyan": {
+      "palette": { "P": "#7CC8D8", "S": "#F5D042" },
+      "frames": [
+        [".PPP.", "PPPPP", "SPSPS", "PSPSP", "PPPPP", ".PPP."]
+      ]
+    },
+    "egg_lime": {
+      "palette": { "P": "#A8D878", "S": "#E88CB0" },
+      "frames": [
+        [".PPP.", "PPPPP", "SPSPS", "PSPSP", "PPPPP", ".PPP."]
+      ]
+    },
+    "egg_lavender": {
+      "palette": { "P": "#B8A8E0", "S": "#FFF0A8" },
+      "frames": [
+        [".PPP.", "PPPPP", "SPSPS", "PSPSP", "PPPPP", ".PPP."]
+      ]
+    },
+    "gift_red": {
+      "palette": { "R": "#C83C2E", "r": "#96302A", "Y": "#F5D042" },
+      "frames": [
+        ["..Y.Y..", "...Y...", "RRRYRRR", "RRRYRRR", "RRRYRRR", "YYYYYYY", "RRRYRRR", "RRRYRRR", "rrrYrrr"]
+      ]
+    },
+    "gift_green": {
+      "palette": { "R": "#4A8C3E", "r": "#35682C", "Y": "#F5D042" },
+      "frames": [
+        ["..Y.Y..", "...Y...", "RRRYRRR", "RRRYRRR", "RRRYRRR", "YYYYYYY", "RRRYRRR", "RRRYRRR", "rrrYrrr"]
+      ]
+    },
+    "gingerbread": {
+      "palette": { "G": "#B5722F", "K": "#402818", "W": "#F0F0F0", "R": "#C83C2E" },
+      "frames": [
+        ["..GGG..", ".GKGKG.", "..GGG..", "WGGGGGW", "..GRG..", "..GRG..", ".GG.GG.", ".W...W."]
+      ]
+    },
+    "bunny": {
+      "palette": { "W": "#F0F0F4", "w": "#C8CCD8", "K": "#383040", "P": "#F0A8C0" },
+      "frames": [
+        [".WW...WW.", ".WP...PW.", ".WP...PW.", ".WW...WW.", ".WWWWWWW.", "WWKWWWKWW", "WWWWPWWWW", "WWWWWWWWW", "wWWWWWWWw", ".WWWWWWW.", ".WW...WW."]
+      ]
+    },
+    "bell": {
+      "palette": { "Y": "#F5C842", "y": "#FFF0B0", "D": "#C08A28", "K": "#6E4A2A" },
+      "frames": [
+        ["...K...", "..YYY..", ".YyYYY.", ".YyYYY.", ".YYYYY.", "YYYYYYY", "DDDDDDD", "...D..."]
+      ]
+    },
+    "candle_pink": {
+      "flapRate": 4,
+      "palette": { "y": "#FFF4B8", "F": "#F0A03C", "C": "#EE9CBC", "s": "#C87098" },
+      "frames": [
+        ["..y..", "..F..", ".CCC.", ".CsC.", ".CCC.", ".CsC.", ".CCC."],
+        [".y...", "..F..", ".CCC.", ".CsC.", ".CCC.", ".CsC.", ".CCC."]
+      ]
+    },
+    "candle_cyan": {
+      "flapRate": 4,
+      "palette": { "y": "#FFF4B8", "F": "#F0A03C", "C": "#7CC8D8", "s": "#4898B0" },
+      "frames": [
+        ["..y..", "..F..", ".CCC.", ".CsC.", ".CCC.", ".CsC.", ".CCC."],
+        [".y...", "..F..", ".CCC.", ".CsC.", ".CCC.", ".CsC.", ".CCC."]
+      ]
+    },
+    "candle_yellow": {
+      "flapRate": 4,
+      "palette": { "y": "#FFF4B8", "F": "#F0A03C", "C": "#F5D042", "s": "#C8A030" },
+      "frames": [
+        ["..y..", "..F..", ".CCC.", ".CsC.", ".CCC.", ".CsC.", ".CCC."],
+        [".y...", "..F..", ".CCC.", ".CsC.", ".CCC.", ".CsC.", ".CCC."]
+      ]
+    }
+  },
+  "themes": {
+    "WINTER": {
+      "label": "Hiver",
+      "particles": [
+        { "kind": "SNOW", "count": 58, "colors": ["#FFFFFF", "#E8F4FF", "#C8E0F0"] }
+      ],
+      "wanderers": {
+        "mode": "DRIFT",
+        "alpha": 95,
+        "items": [
+          { "sprite": "big_snowflake", "mode": "SNOWFALL", "spin": true },
+          { "sprite": "big_snowflake_cross", "mode": "SNOWFALL", "spin": true },
+          { "sprite": "big_snowflake_dendrite", "mode": "SNOWFALL", "spin": true },
+          { "sprite": "big_snowflake_cross", "mode": "SNOWFALL", "spin": true }
+        ]
+      }
+    },
+    "SPRING": {
+      "label": "Printemps",
+      "wind": 7,
+      "particles": [
+        { "kind": "PETAL", "count": 60, "colors": ["#F5B0C8", "#EE9CBC", "#FAD0DE"] }
+      ],
+      "wanderers": {
+        "mode": "DRIFT",
+        "alpha": 125,
+        "items": [
+          { "sprite": "butterfly_orange" },
+          { "sprite": "butterfly_blue" },
+          { "sprite": "butterfly_pink" },
+          { "sprite": "butterfly_orange" },
+          { "sprite": "butterfly_blue" },
+          { "sprite": "butterfly_pink" }
+        ]
+      }
+    },
+    "SUMMER": {
+      "label": "Été",
+      "particles": [
+        { "kind": "FIREFLY", "count": 32, "colors": ["#FFEE88", "#FFE060"] }
+      ],
+      "wanderers": {
+        "mode": "DRIFT",
+        "alpha": 125,
+        "items": [
+          { "sprite": "bee", "flip": true },
+          { "sprite": "bee", "flip": true },
+          { "sprite": "bee", "flip": true },
+          { "sprite": "bee", "flip": true },
+          { "sprite": "bee", "flip": true },
+          { "texture": "sunflower.png", "alpha": 120 },
+          { "texture": "sunflower.png", "alpha": 120 },
+          { "texture": "sunflower.png", "alpha": 120 }
+        ]
+      }
+    },
+    "AUTUMN": {
+      "label": "Automne",
+      "wind": -11,
+      "particles": [
+        { "kind": "LEAF", "count": 60, "colors": ["#E07A2E", "#C85A28", "#A66A38", "#D9A03A"] }
+      ],
+      "wanderers": {
+        "mode": "FALL",
+        "alpha": 115,
+        "items": [
+          { "sprite": "big_leaf_orange" },
+          { "sprite": "big_leaf_red" },
+          { "sprite": "big_leaf_yellow" },
+          { "sprite": "big_leaf_orange" },
+          { "sprite": "big_leaf_red" }
+        ]
+      }
+    },
+    "HALLOWEEN": {
+      "label": "Halloween",
+      "spider": true,
+      "particles": [
+        { "kind": "SOUL", "count": 26, "colors": ["#5BE3D6", "#48C8C0"] },
+        { "kind": "BAT", "count": 8, "scaled": false, "colors": ["#1A1622"] }
+      ],
+      "wanderers": {
+        "mode": "DRIFT",
+        "alpha": 90,
+        "items": [
+          { "sprite": "ghost" },
+          { "sprite": "ghost" },
+          { "sprite": "ghost" }
+        ]
+      }
+    },
+    "CHRISTMAS": {
+      "label": "Noël",
+      "particles": [
+        { "kind": "SNOW", "count": 40, "colors": ["#FFFFFF", "#E8F4FF", "#C8E0F0"] },
+        { "kind": "SPARKLE", "count": 14, "colors": ["#FFE066", "#FFF0A8"] }
+      ],
+      "wanderers": {
+        "mode": "DRIFT",
+        "alpha": 105,
+        "items": [
+          { "sprite": "big_snowflake", "mode": "SNOWFALL", "spin": true },
+          { "sprite": "gift_red" },
+          { "sprite": "gingerbread" },
+          { "sprite": "star" },
+          { "sprite": "gift_green" },
+          { "sprite": "big_snowflake_dendrite", "mode": "SNOWFALL", "spin": true },
+          { "sprite": "gingerbread" }
+        ]
+      }
+    },
+    "NEW_YEAR": {
+      "label": "Nouvel An",
+      "fireworks": true,
+      "fireworksDelay": 0.5,
+      "fireworksColors": ["#F5D042", "#E05046", "#58C8D8", "#8CE060", "#D880E8"],
+      "particles": [
+        { "kind": "SPARKLE", "count": 36, "colors": ["#FFE066", "#FFF0A8"] },
+        { "kind": "CONFETTI", "count": 34, "colors": ["#F5D042", "#F0F0F5", "#D880E8", "#58C8D8", "#E05046"] }
+      ],
+      "wanderers": {
+        "mode": "DRIFT",
+        "alpha": 110,
+        "items": [
+          { "sprite": "star" },
+          { "sprite": "star" },
+          { "sprite": "star" },
+          { "sprite": "star" },
+          { "sprite": "star" }
+        ]
+      }
+    },
+    "EASTER": {
+      "label": "Pâques",
+      "wind": 4,
+      "particles": [
+        { "kind": "CONFETTI", "count": 70, "colors": ["#F5B0C8", "#9CD8E8", "#F5E08C", "#B8E0A0", "#C8AEE0"] }
+      ],
+      "wanderers": {
+        "mode": "DRIFT",
+        "alpha": 115,
+        "items": [
+          { "sprite": "egg_pink" },
+          { "sprite": "bunny" },
+          { "sprite": "bell" },
+          { "sprite": "egg_cyan" },
+          { "sprite": "bunny" },
+          { "sprite": "egg_lime" },
+          { "sprite": "bell" },
+          { "sprite": "egg_lavender" }
+        ]
+      }
+    },
+    "BIRTHDAY": {
+      "label": "Anniversaire",
+      "fireworks": true,
+      "fireworksDelay": 0.8,
+      "particles": [
+        { "kind": "CONFETTI", "count": 60, "colors": ["#E05046", "#F0903C", "#F5D042", "#8CE060", "#58C8D8", "#B88CE8", "#EE8CB8"] },
+        { "kind": "SPARKLE", "count": 14, "colors": ["#FFE066", "#FFF0A8"] }
+      ],
+      "wanderers": {
+        "mode": "DRIFT",
+        "alpha": 120,
+        "items": [
+          { "sprite": "candle_pink" },
+          { "sprite": "gift_red" },
+          { "sprite": "candle_cyan" },
+          { "sprite": "gift_green" },
+          { "sprite": "candle_yellow" },
+          { "sprite": "candle_pink" },
+          { "sprite": "gift_red" },
+          { "sprite": "candle_cyan" },
+          { "sprite": "gift_green" },
+          { "sprite": "candle_yellow" }
+        ]
+      }
+    }
+  }
+}

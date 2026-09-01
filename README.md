@@ -1,52 +1,167 @@
 # Configuration des événements saisonniers
 
-`seasonal_events.json` pilote les fenêtres des thèmes d'arrière-plan de l'app
-**sans mise à jour Play Store**.
+Ce dépôt pilote **entièrement** le décor saisonnier de l'app, sans mise à jour
+Play Store :
 
-## Emplacement
+| Fichier | Rôle |
+|---|---|
+| `seasonal_events.json` | **Quand** : fenêtres de dates des thèmes |
+| `themes.json` | **Quoi** : modèles visuels complets (particules, sprites, couleurs, effets) |
+| `textures/*.png` | Images optionnelles référencées par `themes.json` |
 
-Le fichier est hébergé sur le dépôt GitHub public dédié :
+L'app ne contient **aucun modèle embarqué** : à l'activation du réglage
+« Thème saisonnier », elle télécharge tout ce contenu dans son cache
+(`filesDir/seasonal/`), puis vérifie **une fois par jour au maximum** s'il a
+changé (requête conditionnelle ETag : si rien n'a bougé sur le dépôt, GitHub
+répond `304` et **rien n'est re-téléchargé**). Les textures ne sont reprises
+que si `themes.json` a changé. En cas d'échec (hors ligne…), le cache
+existant reste utilisé et un nouvel essai a lieu au prochain lancement.
 
-- Édition : <https://github.com/Eldrazy-Git/Seasonal_event/blob/main/seasonal_events.json>
-- URL lue par l'app :
-  `https://raw.githubusercontent.com/Eldrazy-Git/Seasonal_event/main/seasonal_events.json`
-  (constante `SeasonalEvents.CONFIG_URL` — la changer là si l'hébergement bouge)
+> Le CDN de GitHub (`raw.githubusercontent.com`) met ~5 minutes à refléter un
+> push. Le bouton debug de l'app (« Télécharger ») le contourne avec une URL
+> unique.
 
-L'app le télécharge **une fois par jour au maximum** : au lancement, elle
-vérifie s'il a déjà été téléchargé depuis minuit (heure locale) ; sinon elle
-le récupère et le met en cache. En cas d'échec (hors ligne…), le dernier
-cache reste utilisé et un nouvel essai a lieu au prochain lancement.
-
-Le fichier `seasonal_events.json` de ce dossier est un modèle de référence.
-
-## Format
+## `seasonal_events.json` — les dates
 
 ```json
 {
   "events": [
-    { "theme": "BIRTHDAY", "start": "2026-08-20", "end": "2026-08-31" }
+    { "theme": "BIRTHDAY", "start": "2026-08-31", "end": "2026-09-06" }
   ]
 }
 ```
 
-- `theme` : `WINTER`, `SPRING`, `SUMMER`, `AUTUMN`, `HALLOWEEN`, `CHRISTMAS`,
-  `NEW_YEAR`, `EASTER`
-- `start` / `end` : dates locales **incluses**, format `AAAA-MM-JJ`
-- En cas de chevauchement, le **premier** événement de la liste gagne
-- Une entrée malformée est ignorée (les autres restent valides)
+- `theme` : **clé libre**, en MAJUSCULES. Soit une clé intégrée (`WINTER`,
+  `SPRING`, `SUMMER`, `AUTUMN`, `HALLOWEEN`, `CHRISTMAS`, `NEW_YEAR`,
+  `EASTER`, `BIRTHDAY`), soit une clé inédite (ex. `SAINT_VALENTIN`) — il
+  suffit qu'un modèle du même nom existe dans `themes.json`.
+- `start` / `end` : dates locales **incluses**, format `AAAA-MM-JJ`.
+  Dates vides = événement désactivé (l'entrée reste dans le fichier).
+- En cas de chevauchement, le **premier** événement de la liste gagne.
+- Une entrée malformée est ignorée (les autres restent valides).
 
-## Repli automatique
+### Repli automatique des dates
 
 Si aucun événement ne couvre la date du jour — ou si le fichier est absent,
 invalide ou injoignable — l'app retombe sur son calcul intégré :
 
 | Thème | Fenêtre intégrée |
 |---|---|
-| Anniversaire : 30 Août 2025 | 24 Août – 30 Août |
 | Halloween | 24 oct. – 1er nov. |
 | Noël | 1er – 26 déc. |
 | Nouvel An | 27 déc. – 3 janv. |
 | Pâques | 7 jours avant le dimanche de Pâques (calculé) → lundi de Pâques |
-| Saisons | équinoxes/solstices réels de l'année, calculés (ex. automne 2025 : 22/09, automne 2026 : 23/09) |
+| Saisons | équinoxes/solstices réels de l'année, calculés |
 
-Pour désactiver tous les overrides, publier `{ "events": [] }`.
+Pour désactiver tous les overrides de dates : `{ "events": [] }`.
+
+## `themes.json` — les modèles visuels
+
+Structure générale :
+
+```json
+{
+  "version": 1,
+  "sprites": { "nom_du_sprite": { … } },
+  "themes":  { "CLÉ_DU_THÈME": { … } }
+}
+```
+
+- `version` : numéro informatif, affiché dans le dialogue debug de l'app.
+- L'**ordre** des thèmes dans le fichier = ordre du bouton de test debug.
+- Un thème sans modèle valide → décor vide pour cette clé (jamais de crash) ;
+  une entrée invalide (sprite, couleur, groupe de particules) est ignorée
+  individuellement, le reste survit.
+
+### Un thème
+
+```json
+"HALLOWEEN": {
+  "label": "Halloween",          // libellé affiché (toasts, debug)
+  "wind": 0,                     // vent horizontal en dp/s (−30 à 30, défaut 0)
+  "spider": true,                // araignée suspendue (effet intégré au moteur)
+  "fireworks": false,            // feux d'artifice (effet intégré au moteur)
+  "fireworksDelay": 0.5,         // délai avant la 1re fusée (s)
+  "fireworksColors": ["#F5D042"],// couleurs des gerbes (défaut : palette du moteur)
+  "particles": [ … ],
+  "wanderers": { … }
+}
+```
+
+### `particles` — groupes de particules
+
+```json
+{ "kind": "SNOW", "count": 58, "colors": ["#FFFFFF", "#E8F4FF"] }
+```
+
+- `kind` : comportement physique, intégré au moteur —
+  `SNOW` (chute + oscillation), `PETAL` / `LEAF` (chute pendulaire "falling
+  leaves"), `CONFETTI` (chute + rotation), `SOUL` (montée pulsante),
+  `FIREFLY` (vol de Lissajous clignotant), `BAT` (traversée horizontale,
+  sprite intégré), `SPARKLE` (montée scintillante).
+- `count` : nombre de base (max 150). Par défaut mis à l'échelle selon la
+  hauteur d'écran ; `"scaled": false` pour un nombre fixe.
+- `colors` : liste de `#RRGGBB` (ou `#AARRGGBB`), tirées au hasard.
+- Optionnel — réglages fins, chacun `[min, max]` tiré par particule :
+  `"speed"` (dp/s ; `FIREFLY` : Hz), `"sway"` (dp), `"freq"` (rad/s).
+  Absents = défauts du moteur (recommandé).
+
+### `wanderers` — sprites baladeurs
+
+```json
+"wanderers": {
+  "mode": "DRIFT",               // défaut des items : DRIFT | FALL | SNOWFALL
+  "alpha": 95,                   // opacité par défaut (0–255)
+  "items": [
+    { "sprite": "ghost" },
+    { "sprite": "big_snowflake", "mode": "SNOWFALL", "spin": true },
+    { "sprite": "bee", "flip": true },
+    { "texture": "sunflower.png", "alpha": 120, "size": [24, 34] }
+  ]
+}
+```
+
+- Un item = **un** sprite à l'écran (répéter pour en avoir plusieurs).
+- `sprite` : nom d'un sprite pixel-art déclaré dans `sprites`.
+- `texture` : fichier de `textures/` (PNG/GIF/WebP, ≤ 512 Ko chacun, ≤ 4 Mo
+  au total) ; `size` = largeur en dp `[min, max]` (défaut 24–34).
+- `mode` : `DRIFT` (dérive libre, évite le logo), `FALL` (chute pendulaire),
+  `SNOWFALL` (chute douce continue).
+- `spin` : rotation lente sur soi-même. `flip` : miroir horizontal selon la
+  direction du déplacement.
+- Maximum 24 items par thème.
+
+### `sprites` — pixel-art
+
+```json
+"ghost": {
+  "flapRate": 2.5,               // frames/s (absent ou 0 = une seule frame)
+  "palette": { "W": "#E8ECF2", "K": "#303848" },
+  "frames": [
+    [".WWWWW.", "WKWWKWW", "W.W.W.W"],
+    [".WWWWW.", "WKWWKWW", ".W.W.W."]
+  ]
+}
+```
+
+- Chaque frame est une grille de caractères (max 32×32, **rectangulaire** :
+  toutes les lignes d'une frame ont la même longueur, max 8 frames).
+- Chaque caractère est peint avec la couleur de la `palette` ; un caractère
+  absent de la palette (`.` par convention) = pixel transparent.
+
+## Créer un événement inédit (ex. Saint-Valentin)
+
+1. Ajouter le modèle dans `themes.json` :
+   `"SAINT_VALENTIN": { "label": "Saint-Valentin", "particles": [ … ], … }`
+   (+ sprites/textures si besoin).
+2. Ajouter la fenêtre dans `seasonal_events.json` :
+   `{ "theme": "SAINT_VALENTIN", "start": "2027-02-07", "end": "2027-02-15" }`.
+3. Pousser. Les apps récupèrent le tout à leur prochaine vérification
+   quotidienne — aucune mise à jour de l'app nécessaire.
+
+## URLs lues par l'app
+
+- `https://raw.githubusercontent.com/Eldrazy-Git/Seasonal_event/main/seasonal_events.json`
+  (constante `SeasonalEvents.CONFIG_URL`)
+- `https://raw.githubusercontent.com/Eldrazy-Git/Seasonal_event/main/themes.json`
+  et `…/main/textures/<nom>` (constante `SeasonalContentStore.BASE_URL`)
