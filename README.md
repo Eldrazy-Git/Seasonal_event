@@ -193,9 +193,36 @@ Structure générale :
 3. Pousser. Les apps récupèrent le tout à leur prochaine vérification
    quotidienne — aucune mise à jour de l'app nécessaire.
 
+## Canal de test (branche `test`)
+
+Pour essayer un thème **sans impacter la production**, l'app de **debug**
+(et elle seule) peut lire la branche `test` de ce dépôt au lieu de `main`.
+
+1. Modifier `themes.json`, `seasonal_events.json` ou `textures/` sur la
+   branche **`test`** (sélecteur de branche de GitHub, ou `git checkout test`).
+2. Dans l'app debug : appui long sur le bouton « Test thèmes saisonniers »
+   (sous la poignée du menu) → **« Passer sur le canal Test »**. Le contenu de
+   `test` est téléchargé immédiatement (cache CDN contourné), puis
+   « Télécharger » le reprend après chaque modification.
+3. Le bouton « Test thèmes saisonniers » (appui court) fait défiler les thèmes
+   pour les voir sans changer la date du téléphone.
+4. Une fois satisfait : reporter les changements sur **`main`** (pull request
+   `test` → `main`, ou merge), puis **« Revenir en Production »** dans l'app.
+
+Le canal de test a son propre cache dans l'app (`filesDir/seasonal_test/`) :
+basculer ne touche jamais au contenu de production déjà téléchargé. Les
+versions publiées (non débogables) lisent **toujours** `main`, même si le
+réglage a été activé. Le dialog debug affiche le canal actif, et les messages
+de téléchargement sont préfixés par `[CANAL TEST]`.
+
+> Après un merge, penser à réaligner `test` sur `main` (ou à recréer la
+> branche) pour repartir d'une base à jour.
+
 ## URLs lues par l'app
 
-- `https://raw.githubusercontent.com/Eldrazy-Git/Seasonal_event/main/seasonal_events.json`
-  (constante `SeasonalEvents.CONFIG_URL`)
-- `https://raw.githubusercontent.com/Eldrazy-Git/Seasonal_event/main/themes.json`
-  et `…/main/textures/<nom>` (constante `SeasonalContentStore.BASE_URL`)
+Racine : `https://raw.githubusercontent.com/Eldrazy-Git/Seasonal_event/<branche>/`
+(`SeasonalChannel.baseUrl()`), avec `<branche>` = `main` (production) ou
+`test` (canal de test, debug uniquement) :
+
+- `<racine>seasonal_events.json` (`SeasonalEvents`)
+- `<racine>themes.json` et `<racine>textures/<nom>` (`SeasonalContentStore`)
