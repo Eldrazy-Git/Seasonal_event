@@ -1,0 +1,23 @@
+# Secrets : ne jamais versionner
+.env
+.env.*
+*.jks
+*.keystore
+local.properties
+
+# Dépendances et fichiers générés
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+build/
+dist/
+out/
+.gradle/
+.idea/
+*.log
+
+# Fichiers système
+Thumbs.db
+desktop.ini
+.DS_Store

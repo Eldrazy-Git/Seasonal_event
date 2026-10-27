@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "nom": "Seasonal_event",
+  "description": "Ce dépôt pilote **entièrement** le décor saisonnier de l'app, sans mise à jour Play Store :",
+  "type": "autre",
+  "categorie": "Application",
+  "tags": [],
+  "favori": false,
+  "point_entree": "README.md",
+  "ouvrir_avec": "explorateur",
+  "actions": [],
+  "outils_lies": []
+}
