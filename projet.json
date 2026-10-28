@@ -9,5 +9,11 @@
   "point_entree": "README.md",
   "ouvrir_avec": "explorateur",
   "actions": [],
-  "outils_lies": []
+  "outils_lies": [],
+  "liens": [
+    {
+      "projet": "lacitadelle",
+      "description": "Permet de gérer le décor saisonnier de l'app"
+    }
+  ]
 }
