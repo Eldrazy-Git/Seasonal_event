@@ -15,5 +15,6 @@
       "projet": "lacitadelle",
       "description": "Permet de gérer le décor saisonnier de l'app"
     }
-  ]
+  ],
+  "icone": "icone.png"
 }
