@@ -16,15 +16,49 @@
 
 ## Rôle du projet
 
-Ce dépôt pilote **entièrement** le décor saisonnier de l'app, sans mise à jour Play Store :
+Ce dépôt pilote **entièrement** le décor saisonnier de l'app La Citadelle - Vote Compagnon,
+sans mise à jour Play Store. Il ne contient pas de code : l'app télécharge ses fichiers depuis
+GitHub. `seasonal_events.json` dit quand afficher chaque thème, `themes.json` décrit les thèmes
+(particules, sprites, couleurs, effets) et `textures/` contient leurs images. Le format complet
+est dans `README.md`.
 
 ## Technologies
 
-(À compléter.)
+Uniquement du JSON et des images. Aucune dépendance. Le code qui lit ces fichiers est dans l'app
+Android : `../lacitadelle/app/src/main/java/fr/lacitadelle/votecompagnon/theme/` (`SeasonalChannel`,
+`SeasonalEvents`, `SeasonalContentStore`, `SeasonalModels`).
 
 ## Lancer ou compiler
 
-(À compléter.)
+Rien à compiler ni à lancer. Pour vérifier le JSON avant de pousser :
+
+```
+python -m json.tool seasonal_events.json
+python -m json.tool themes.json
+```
+
+L'aperçu se fait dans l'app de debug, avec le canal de test (voir `README.md`).
+
+## Pièges
+
+- **`main` est la production** : un push sur `main` atteint les apps publiées, à leur prochaine
+  vérification quotidienne. Pour essayer un thème, utiliser la branche `test`, que seules les
+  versions de debug peuvent lire.
+- **Noms de fichiers et chemins** : l'app construit les URL à partir de `seasonal_events.json`,
+  `themes.json` et `textures/<nom>` (`SeasonalChannel.baseUrl()`). Les renommer casse les apps
+  déjà installées.
+- **Clé mal écrite** : une clé de `seasonal_events.json` sans modèle du même nom dans `themes.json`
+  ne provoque pas d'erreur, mais le décor reste vide pendant ces dates.
+- **Chevauchements** : le premier événement de la liste gagne. Une longue période placée avant un
+  événement plus court qu'elle contient empêche celui-ci de s'afficher.
+- **Fenêtres intégrées** : un thème présent dans `seasonal_events.json` avec des dates valides
+  touchant l'année en cours perd sa fenêtre intégrée pour cette année. Hors de ses dates, l'app
+  affiche la saison (`SeasonalTheme.currentKey`). Le `README.md` ne le précise pas.
+- **Limites côté app** : `themes.json` est refusé au-delà de 256 Ko (`MAX_JSON_BYTES`). Les autres
+  limites sont dans `SeasonalContentStore.kt` et `SeasonalModels.kt`.
+- **Moteur** : les `kind` de particules et les effets comme `spider` ou `fireworks` sont intégrés à
+  l'app. En ajouter un demande une modification de `../lacitadelle/`. Un nouveau thème n'en demande
+  pas s'il réutilise ce qui existe.
 
 <!-- toolkit:projets-lies (section tenue à jour par Toolkit : ne pas la modifier à la main) -->
 ## Projets liés

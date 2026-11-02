@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "nom": "Seasonal_event",
-  "description": "Ce dépôt pilote **entièrement** le décor saisonnier de l'app, sans mise à jour Play Store :",
+  "description": "Contenu du décor saisonnier de l'application La Citadelle - Vote Compagnon : dates des événements, thèmes visuels et textures. L'application le télécharge depuis GitHub, sans mise à jour Play Store.",
   "type": "autre",
   "categorie": "Application",
   "tags": [],
