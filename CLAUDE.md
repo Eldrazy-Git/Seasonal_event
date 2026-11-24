@@ -79,5 +79,5 @@ déclarent dans Toolkit (panneau du projet > « Projets liés »).
 ### Liens indirects (par l'intermédiaire d'autres projets)
 
 - **Catalogue_tools** (`../catalogue-tools/`, script) — Utilitaire permettant la mise à jours des indexes, images et fichiers de recettes pour le Catalogue de l'application LaCitadelle. — via La Citadelle - Vote Compagnon
-- **creative-tab-dumper** (`../creative-tab-dumper/`, projet Java (Gradle)) — Mod Minecraft permettant le lister les items de l'inventaire créatif et de donner leurs catégories. — via La Citadelle - Vote Compagnon → Catalogue_tools
+- **creative-tab-dumper** (`../creative-tab-dumper/`, projet Java (Gradle)) — Mod Fabric (Minecraft 26.3) qui exporte en JSON les items vanilla, leurs variantes, leurs onglets créatifs, leur taille de pile et leur durabilité, pour le catalogue de Catalogue_tools. — via La Citadelle - Vote Compagnon → Catalogue_tools
 <!-- /toolkit:projets-lies -->
